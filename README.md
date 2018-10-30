@@ -30,7 +30,16 @@ st->op0->cond
 cond(yes)->op1->op2->op3->op4->e
 cond(no)->op0
 ```
+​```flow
+st=>start: Start
+op=>operation: Your Operation
+cond=>condition: Yes or No?
+e=>end
 
+st->op->cond
+cond(yes)->e
+cond(no)->op
+​```
 
 
 # Run Instructions
