@@ -16,31 +16,16 @@ If the newspaper gets data for the year 2019 (with the assumption that the neces
 
 # Approach
 
-```flow
-st=>start: Load Arguments
-op0=>operation: Retrieve Input File 
-cond1=>condition: Is file a .csv?
-op1=>operation: Generate H1B Instance
-op2=>operation: Read CSV
-op3=>operation: Cleanse Data
-op4=>operation: Count
-e=>end: Save Result
+###Load Arguments: 
+The program read path arguments from the run.sh file. If there exists a non-csv file in the input folder, the program will ignore it.
 
-st->op0->cond
-cond(yes)->op1->op2->op3->op4->e
-cond(no)->op0
-```
-​```flow
-st=>start: Start
-op=>operation: Your Operation
-cond=>condition: Yes or No?
-e=>end
-
-st->op->cond
-cond(yes)->e
-cond(no)->op
-​```
-
+###Generate H1B Instance
+All the core algorithm are implemented in the H1B.py module. After a instance is generated, the program will:
+1. read csv file;
+2. clease data;
+3. if a H1b application is certified, count occupation and state occurance using collections.Counter;
+4. store the results into txt files.
+​
 
 # Run Instructions
 
