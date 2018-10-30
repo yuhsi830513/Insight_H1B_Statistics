@@ -20,9 +20,9 @@ function find_file_or_dir_in_project {
   local proj_path=$1
   local file_or_dir_name=$2
   if [[ ! -e "${proj_path}/${file_or_dir_name}" ]]; then
-    echo -e "[${color_red}FAIL${color_norm}]: no ${file_or_dir_name} found"
+    echo -e "[${color_red}FAIL${color_norm}]: no ${file_or_dir_name} found"  >> ${GRADER_ROOT}/results.txt
     print_dir_contents ${proj_path}
-    echo -e "${color_red}${file_or_dir_name} [MISSING]${color_norm}"
+    echo -e "${color_red}${file_or_dir_name} [MISSING]${color_norm}"  >> ${GRADER_ROOT}/results.txt
     exit 1
   fi
 }
@@ -66,7 +66,6 @@ function compare_outputs {
     NUM_OUTPUT_FILES_PASSED=$(($NUM_OUTPUT_FILES_PASSED+1))
   else
     echo -e "[${color_red}FAIL${color_norm}]: ${test_folder}"
-    diff ${PROJECT_ANSWER_PATH1} ${TEST_ANSWER_PATH1}
   fi
 
   OUTPUT_FILENAME2=top_10_states.txt
@@ -111,3 +110,4 @@ function run_all_tests {
 
 check_project_struct
 run_all_tests
+timeout 5
