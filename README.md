@@ -16,12 +16,12 @@ If the newspaper gets data for the year 2019 (with the assumption that the neces
 
 # Approach
 
-###Load Arguments
+### Load Arguments
 
 The program read path arguments from the run.sh file. If there exists a non-csv file in the input folder, the program will ignore it.
 
 
-###Generate H1B Instance
+### Generate H1B Instance
 
 All the core algorithm are implemented in the H1B.py module. After a instance is generated, the program will:
 1. read csv file;
